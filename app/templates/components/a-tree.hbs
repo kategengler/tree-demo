@@ -1,0 +1,19 @@
+<div class="tree">
+  {{#each branches as |branch|}}
+    <h3>
+      {{#if (eq expandedBranch.id branch.id)}}
+        <a href="#" {{action collapseAll}}>-</a>
+      {{else}}
+        <a href="#" {{action expandBranch branch}}>+</a>
+      {{/if}}
+      {{branch.title}}
+    </h3>
+    {{#if (eq expandedBranch.id branch.id)}}
+      <ul>
+        {{#each branch.items as |item|}}
+          <li>{{item.value}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+</div>
